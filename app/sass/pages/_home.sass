@@ -1,0 +1,222 @@
+// Section: Heroes
+.h-heroes
+	height: 100vh
+	min-height: 600px
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: -1
+		background-color: rgba($blue, 0.6)
+	.container
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 100%
+	&-content
+		text-align: center
+		.title
+			margin-bottom: 16px
+			color: $white
+			font-size: 68px
+			> span
+				color: $aqua-200
+		.descr
+			color: $white
+		.btn
+			min-width: 230px
+	&-video
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		background-color: $blue
+		> video
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+
+// Section: Direction of work
+.h-direction
+	&-item
+		text-align: center
+		.picture
+			width: 80px
+			height: 80px
+			margin-bottom: 32px
+		.title
+			margin-bottom: 0
+
+
+// Section: Advantages
+.h-advantages
+	&-slider
+		overflow: hidden
+		position: relative
+		margin-right: 20px
+		border-radius: 32px 0 32px 0
+		.swiper-button-prev,
+		.swiper-button-next
+			position: absolute
+			top: 50%
+			z-index: 3
+			transform: translateY(-50%)
+		.swiper-button-prev
+			left: 32px
+		.swiper-button-next
+			right: 32px
+	&-photo
+		position: relative
+		width: 100%
+		height: 460px
+		.label
+			position: absolute
+			left: 32px
+			bottom: 32px
+			padding: 12px 24px
+			border-radius: 16px 0 16px 0
+			background-color: $aqua-300
+			color: $white
+			+font-size(sm)
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&-list
+		display: flex
+		flex-wrap: wrap
+		list-style: none
+		margin-bottom: -48px
+		padding: 0
+	&-item
+		flex: 0 0 50%
+		margin-bottom: 48px
+		display: flex
+		align-items: center
+		.number
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 45px
+			height: 45px
+			background: url('../images/dist/symbol.svg') no-repeat center/100%
+			color: $white
+			font-weight: $w-medium
+		.title
+			margin-left: 24px
+			color: $text-300
+			font-size: 17px
+			font-weight: $w-medium
+
+
+// Section: Strategy
+.h-strategy
+	padding-top: 80px
+	padding-bottom: 80px
+	background-color: $blue
+	&-content
+		text-align: center
+
+// Section: Invest
+.h-invest
+	&-title
+		> span
+			font-weight: $w-black
+	&-item
+		.decor
+			display: flex
+			align-items: center
+			margin-bottom: 24px
+			.icon
+				flex: 0 0 auto
+				width: 30px
+				height: 30px
+				fill: $aqua-200
+			.line
+				flex: 1 1 auto
+				height: 1px
+				margin-left: 20px
+				background-color: $aqua-200
+		.title
+			margin-bottom: 12px
+		.descr
+			margin-bottom: 0
+
+// Section: Presentation
+.h-presentation
+	padding-top: 150px
+	padding-bottom: 150px
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		background-color: rgba($blue, 0.75)
+	&-content
+		text-align: center
+		.play-button
+			display: inline-block
+			&:hover
+				transform: scale(1.1)
+			&-icon
+				width: 100px
+				height: 100px
+				.play
+					fill: $white
+					transition: fill .3s ease
+				.symbol
+					fill: $aqua-200
+					transition: fill .3s ease
+				&:hover
+					.play
+						fill: $aqua-200
+					.symbol
+						fill: $white
+	&-photo
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		background-color: $blue
+		> img
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+
+// Section: Download
+.h-download
+	overflow: hidden
+	padding-top: 75px
+	padding-bottom: 75px
+	background-color: $blue
+	&-content
+		position: relative
+		.title
+			margin-bottom: 0
+			> span
+				color: $aqua-200
+		.btn
+			margin-left: auto
+			margin-right: auto
+	&-icon
+		position: absolute
+		top: 50%
+		right: 96%
+		z-index: -1
+		width: 300px
+		height: 300px
+		background: url('../images/dist/icons/download.svg') no-repeat center/100%
+		transform: translateY(-50%) rotate(12deg)
+		opacity: 0.1

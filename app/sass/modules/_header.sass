@@ -1,0 +1,30 @@
+.header
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	z-index: 19
+	&-inner
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding-top: 40px
+		padding-bottom: 40px
+	&-logo
+		a
+			display: block
+		img
+			max-width: 170px
+			max-height: 50px
+	&-nav
+		nav
+			display: flex
+			align-items: center
+			> a
+				margin-left: 25px
+				margin-right: 25px
+				color: $white
+				font-weight: $w-medium
+				&:hover
+					color: $aqua-200
+	&-btn

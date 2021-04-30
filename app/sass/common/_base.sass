@@ -17,19 +17,17 @@
 				background-color: $aqua-300
 
 ::selection
-	background-color: rgba($aqua-300, 0.05)
-	color: $black
-
-html, body
-	overflow-x: hidden
+	background-color: rgba($aqua-200, 0.25)
+	color: $text-300
 
 body
+	overflow-x: hidden
 	position: relative
 	min-width: 320px
 	color: $black
 	font-family: $userfont
 	font-size: 16px
-	line-height: 1.5
+	line-height: 1.6
 	&.modal-open
 		padding-right: 0 !important
 	&.lock-scroll
@@ -66,16 +64,13 @@ h1, h2, h3, h4, h5, h6
 	color: $black
 	font-weight: $w-black
 	line-height: 1.25
-	> span
-		-webkit-text-fill-color: $trsp
-		-webkit-text-stroke: 1px $aqua-300
 
 hr
 	display: block
 	width: 100%
 	height: 1px
 	margin: 30px 0
-	background-color: $blue-200
+	background-color: $blue
 	border: 0
 
 .icon

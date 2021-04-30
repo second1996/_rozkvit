@@ -1,3 +1,43 @@
-.section
+section
 	position: relative
+
+.section
 	padding-top: 150px
+
+.section-bg
+	margin-top: 150px
+	padding-top: 100px
+	padding-bottom: 100px
+	background-color: $aqua-400
+
+.section-pattern
+	z-index: 1
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		right: -32%
+		bottom: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		background: url('../images/dist/pattern.svg') no-repeat center/cover
+		opacity: 0.05
+
+.section-heading
+	max-width: 770px
+	.suptitle
+		margin-bottom: 6px
+		+font-size(sm)
+		font-weight: $w-bold
+		text-transform: lowercase
+	.title
+		margin-bottom: 0
+		+font-size(xxl)
+		> span
+			color: $aqua-200
+	.descr
+		margin-top: 24px
+		margin-bottom: 0
+	.btn
+		margin-top: 32px

@@ -2,21 +2,41 @@
 	position: relative
 	display: inline-flex
 	align-items: center
+	justify-content: center
 	min-width: 200px
-	padding: 24px 32px
-	border-radius: 0
-	border: 2px solid $aqua-300
+	padding: 20px 32px
+	border-radius: 0 20px 0 20px
+	border: 0
 	background-color: $white
-	color: $aqua-300
+	color: $blue
 	font-family: inherit
 	font-size: 15px
 	font-weight: $w-bold
 	line-height: 1
 	text-align: center
-	text-transform: lowercase
 	white-space: nowrap
 	outline: none!important
 	user-select: none
 	transition: $trs
 	&:hover
-		color: inherit
+		border-radius: 3px
+		background-color: $aqua-300
+		color: $white
+	&:focus
+		box-shadow: 0 0 0 4px rgba($aqua-200, 0.15)
+		background-color: darken($aqua-300, 5%)
+		color: $white
+	// Icon
+	> svg + span
+		margin-left: 10px
+
+	// Sizes
+	&.btn-lg
+		padding: 24px 32px
+
+	// Themes
+	&.btn-aqua
+		background-color: darken($aqua-300, 2%)
+		color: $white
+		&:focus
+			background-color: darken($aqua-300, 5%)
