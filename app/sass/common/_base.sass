@@ -1,0 +1,98 @@
+@import '../helpers/helpers'
+
++media-breakpoint-up(lg)
+	.scrollbar
+		*
+			scrollbar-width: thin
+			scrollbar-color: rgba($black, 0.25) $white
+		::-webkit-scrollbar
+			width: 12px
+		::-webkit-scrollbar-track
+			background-color: $white
+		::-webkit-scrollbar-thumb
+			background-color: rgba($black, 0.25)
+			border-radius: 20px
+			border: 3px solid $white
+			&:hover
+				background-color: $aqua-300
+
+::selection
+	background-color: rgba($aqua-300, 0.05)
+	color: $black
+
+html, body
+	overflow-x: hidden
+
+body
+	position: relative
+	min-width: 320px
+	color: $black
+	font-family: $userfont
+	font-size: 16px
+	line-height: 1.5
+	&.modal-open
+		padding-right: 0 !important
+	&.lock-scroll
+		overflow: hidden
+		height: 100%
+
+figure
+	margin: 0
+
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+a
+	position: relative
+	color: $black
+	transition: $trs
+	&:hover
+		color: $aqua-300
+		text-decoration: none
+
+p
+	font-weight: 200
+	&:not(:first-of-type)
+		margin-bottom: 15px
+
+img
+	display: inline-block
+	max-width: 100%
+	height: auto
+
+h1, h2, h3, h4, h5, h6
+	color: $black
+	font-weight: $w-black
+	line-height: 1.25
+	> span
+		-webkit-text-fill-color: $trsp
+		-webkit-text-stroke: 1px $aqua-300
+
+hr
+	display: block
+	width: 100%
+	height: 1px
+	margin: 30px 0
+	background-color: $blue-200
+	border: 0
+
+.icon
+	display: inline-block
+	width: 1em
+	height: 1em
+	stroke-width: 0
+	stroke: currentColor
+	fill: currentColor
+
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn
+	from
+		opacity: 0
+	to
+		opacity: 1
+		transform: none

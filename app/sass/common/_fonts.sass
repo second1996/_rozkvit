@@ -1,0 +1,11 @@
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('Cera Pro', normal, 400, '../fonts/cerapro-regular-webfont.woff2')
+@include font('Cera Pro', normal, 500, '../fonts/cerapro-medium-webfont.woff2')
+@include font('Cera Pro', normal, 700, '../fonts/cerapro-bold-webfont.woff2')
+@include font('Cera Pro', normal, 800, '../fonts/cerapro-black-webfont.woff2')

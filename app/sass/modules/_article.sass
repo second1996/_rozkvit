@@ -1,0 +1,36 @@
+article
+	h1, h2, h3, h4, h5, h6
+		margin-bottom: 20px
+		font-size: 22px
+		font-weight: 500
+		&:not(:first-of-type)
+			margin-top: 40px
+		+media-breakpoint-down(md)
+			font-size: 20px
+		+media-breakpoint-down(xs)
+			font-size: 18px
+
+	p,
+	img,
+	ul,
+	ol,
+	blockquote, table
+		margin-bottom: 10px
+
+	b,
+	strong
+		font-weight: 500
+
+	p,
+	ul > li,
+	ul > li > a
+		font-size: 16px
+		+media-breakpoint-down(xs)
+			font-size: 15px
+
+	a
+		color: $black
+		font-size: 16px
+		font-weight: 500
+		&:hover
+			color: $aqua-300

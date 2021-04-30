@@ -1,0 +1,78 @@
+@import '../helpers/helpers'
+
+.modal
+	padding-right: 0!important
+	padding-left: 0!important
+	&.fade
+		.modal-dialog
+			transform: scale(1.05)
+	&.show
+		.modal-dialog
+			transform: none
+
+	&-dialog
+		+media-breakpoint-up(sm)
+			max-width: 600px
+
+	&-content
+		border-radius: 0
+		border: 0
+
+	&-header
+		align-items: center
+		padding: 40px 40px 0
+		border-bottom: 0
+		+media-breakpoint-down(xs)
+			padding: 20px 20px 0
+
+	&-title
+		padding-right: 30px
+		font-size: 20px
+		font-weight: $w-bold
+		line-height: 1.2
+
+	&-close
+		flex: 0 0 auto
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: space-between
+		width: 46px
+		height: 46px
+		box-sizing: border-box
+		outline: none !important
+		transition: background-color .3s ease
+		+media-breakpoint-down(xs)
+			width: 36px
+			height: 36px
+		&.btn
+			padding: 10px
+			+media-breakpoint-down(xs)
+				padding: 5px
+		> span
+			display: block
+			width: 100%
+			height: 2px
+			background-color: $aqua-300
+			transform-origin: 50%
+			transition: transform .3s ease, opacity .15s ease
+			&:nth-child(1)
+				transform: translateY(10px) rotate(45deg)
+			&:nth-child(2)
+				transform: translateY(-10px) rotate(-45deg)
+		&:hover
+			> span
+				background-color: $white
+				&:nth-child(1)
+					transform: translateY(10px) rotate(0deg)
+				&:nth-child(2)
+					transform: translateY(-10px) rotate(0deg)
+
+	// Modal body
+	&-body
+		padding: 40px
+		+media-breakpoint-down(xs)
+			padding: 20px
+
+	&-descr
+		font-size: 17px

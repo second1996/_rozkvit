@@ -1,0 +1,67 @@
+@import '../helpers/helpers'
+
+/* ==========================================================================
+	 Base customize for forms
+	 ========================================================================== */
+::placeholder
+	color: #000
+	text-transform: lowercase
+
+input, textarea
+	outline: none
+	font-family: $userfont
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: accent
+
+button:disabled
+	pointer-events: none
+
+.form
+	position: relative
+	&-label
+		margin-bottom: 12px
+		color: $black
+		font-size: 16px
+		cursor: pointer
+		> sup
+			position: relative
+			top: -2px
+			color: $aqua-300
+			font-size: 100%
+	&-control,
+	&-textarea
+		appearance: none
+		display: block
+		width: 100%
+		margin-bottom: 20px
+		color: $black
+		font-size: 16px
+		font-weight: $w-regular
+		border-radius: 0
+		border: 1px solid $blue-200
+		background-color: $trsp
+		background-clip: padding-box
+		color: $black
+		transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out, background-color .3s ease-in-out
+		&:focus
+			box-shadow: 0 0 0 1px $aqua-300
+			border-color: $aqua-300
+			background-color: $white
+	&-control
+		height: 60px
+		padding: 0 32px
+		line-height: 60px
+		+media-breakpoint-down(xs)
+			height: 50px
+			line-height: 50px
+		&--number
+			-moz-appearance: textfield
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button
+				-webkit-appearance: none
+				margin: 0
+	&-textarea
+		padding: 8px 16px
+		resize: none
