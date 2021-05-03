@@ -17,8 +17,8 @@
 				background-color: $aqua-300
 
 ::selection
-	background-color: rgba($aqua-200, 0.25)
-	color: $text-300
+	background-color: $aqua-200
+	color: $white
 
 body
 	overflow-x: hidden
@@ -47,7 +47,7 @@ a
 	color: $black
 	transition: $trs
 	&:hover
-		color: $aqua-300
+		color: darken($aqua-300, 5%)
 		text-decoration: none
 
 p
@@ -80,6 +80,9 @@ hr
 	stroke-width: 0
 	stroke: currentColor
 	fill: currentColor
+
+.mw-100
+	max-width: 100% !important
 
 
 /* ==========================================================================

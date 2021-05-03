@@ -28,4 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	})
 
+	// Testimonials slider
+	new Swiper('.h-testimonials-slider .swiper-container', {
+		slidesPerView: 2,
+		spaceBetween: 40,
+		navigation: {
+			prevEl: '.h-testimonials-slider .swiper-button-prev',
+			nextEl: '.h-testimonials-slider .swiper-button-next'
+		},
+	})
+
 })
