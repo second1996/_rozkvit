@@ -1,7 +1,7 @@
 // // Import jQuery module (npm i jquery)
-// import $ from 'jquery'
-// window.jQuery = $
-// window.$ = $
+import $ from 'jquery'
+window.jQuery = $
+window.$ = $
 
 // // Import vendor jQuery plugin example (not module)
 // require('~/app/libs/mmenu/dist/mmenu.js')
@@ -9,6 +9,9 @@
 // Import Swiper slider bundle
 import SwiperCore, { Navigation, Pagination, EffectFade, Autoplay, Swiper } from 'swiper/core'
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
+
+// Import Bootstrap bundle
+require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') // Popper lib
 
 document.addEventListener('DOMContentLoaded', () => {
 
