@@ -103,6 +103,7 @@
 			height: 100%
 			object-fit: cover
 	&-list
+		counter-reset: advantages-list
 		display: flex
 		flex-wrap: wrap
 		list-style: none
@@ -115,15 +116,22 @@
 		align-items: center
 		padding-right: 20px
 		.number
+			position: relative
 			flex: 0 0 auto
-			display: flex
-			align-items: center
-			justify-content: center
 			width: 45px
 			height: 45px
 			background: url('../images/dist/symbol.svg') no-repeat center/100%
-			color: $white
-			font-weight: $w-medium
+			&::after
+				counter-increment: advantages-list
+				content: counter(advantages-list)
+				position: absolute
+				top: 50%
+				left: 50%
+				z-index: 1
+				color: $white
+				font-size: 20px
+				font-weight: $w-medium
+				transform: translate(-50%, -50%)
 		.title
 			flex: 1 1 auto
 			margin-left: 24px
@@ -143,43 +151,25 @@
 
 // Section: Invest
 .h-invest
+	padding-top: 150px
+	padding-bottom: 150px
+	background-color: $blue
 	&-title
 		> span
 			font-weight: $w-black
 	&-item
-		.decor
-			display: flex
-			align-items: center
+		.picture
 			margin-bottom: 24px
-			.icon
-				flex: 0 0 auto
-				width: 30px
-				height: 30px
-				fill: $aqua-200
-			.line
-				flex: 1 1 auto
-				height: 1px
-				margin-left: 20px
-				background-color: $aqua-200
-		.title
-			margin-bottom: 12px
-		.descr
-			margin-bottom: 0
 
 
 // Section: Presentation
 .h-presentation
-	padding-top: 150px
-	padding-bottom: 150px
-	&::after
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		z-index: -1
-		width: 100%
-		height: 100%
-		background-color: rgba($blue, 0.75)
+	&-inner
+		overflow: hidden
+		position: relative
+		padding-top: 100px
+		padding-bottom: 100px
+		border-radius: 64px 0 64px 0
 	&-content
 		text-align: center
 		.play-button
@@ -208,6 +198,15 @@
 		width: 100%
 		height: 100%
 		background-color: $blue
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			z-index: 1
+			width: 100%
+			height: 100%
+			background-color: rgba($text-300, 0.75)
 		> img
 			width: 100%
 			height: 100%
@@ -416,7 +415,7 @@
 	.notes
 		position: absolute
 		top: 65%
-		left: 10px
+		left: 0
 		max-width: 270px
 		.note
 			&:not(:last-child)
@@ -434,32 +433,230 @@
 				margin-bottom: 0
 				color: $text-200
 				font-size: 14px
+	
+	// Goals
+	&-goals
+		padding-left: 95px
+		.list
+			> li
+				&:not(:last-child)
+					margin-bottom: 16px
+
+
+// Section: Invest rounds progress
+.h-rounds
+	padding-top: 100px
+	padding-bottom: 175px
+	&::before,
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		display: block
+		width: 50%
+		height: 100%
+		border-radius: 64px 0 0 64px
+	&::before
+		background-color: $blue
+	&::after
+		background: url('../images/dist/rounds-progress-bg.png') no-repeat bottom left
+		filter: grayscale(1)
+		opacity: 0.08
+	&-wrapper
+		display: flex
+		justify-content: space-between
+	&-title
+		margin-bottom: 64px
+		font-size: 34px
+		> span
+			font-weight: $w-regular
+
+	// First round
+	&-first
+		.h-rounds-title
+			color: $blue
+		.h-rounds-goals
+			> li
+				max-width: 405px
+				padding: 16px 32px
+				border-radius: 32px 0 32px 0
+				background-color: $aqua-400
+				&:not(:last-child)
+					margin-bottom: 32px
+				.suptitle
+					color: $aqua-300
+					font-size: 18px
+					font-weight: $w-bold
+				.descr
+					margin-bottom: 0
+					color: $blue
+					> span
+						display: block
+						font-size: 32px
+						font-weight: $w-black
+
+	// Second round
+	&-second
+		position: relative
+		z-index: 3
+		.h-rounds-title
+			color: $white
+		.h-rounds-goals
+			> li
+				margin-left: auto
+				max-width: 405px
+				&:not(:last-child)
+					margin-bottom: 32px
+				.suptitle
+					color: $aqua-300
+					font-size: 18px
+					font-weight: $w-bold
+				.descr
+					margin-bottom: 0
+					color: $white
+					> span
+						display: block
+						font-size: 32px
+						font-weight: $w-black
+
+	// Invest status
+	&-progress
+		position: absolute
+		top: 175px
+		left: 50%
+		z-index: 3
+		width: 590px
+		height: 618px
+		transform: translateX(-50%)
+
+		.money
+			position: absolute
+			top: 50%
+			left: 50%
+			z-index: 4
+			text-align: center
+			transform: translate(-50%, -50%)
+			&-suptitle
+				color: $text-200
+				font-size: 18px
+				font-weight: $w-bold
+			&-value
+				color: $blue
+				font-size: 48px
+				font-weight: $w-black
+			&-btn
+				margin-top: 12px
+				border-radius: 0
+				background-color: $trsp
+				&:hover
+					border-radius: 0 20px 0 20px
+					background-color: $white
+				> span
+					color: $blue
+					font-size: 18px
+					font-weight: $w-medium
+				.icon
+					flex: 0 0 auto
+					width: 12px
+					height: 12px
+					margin-left: 12px
+					fill: $blue
+
+		.percent
+			position: absolute
+			top: 50%
+			left: 50%
+			z-index: 3
+			color: $white
+			font-size: 150px
+			font-weight: $w-black
+			line-height: 1
+			text-align: center
+			transform: translate(-50%, -50%)
+			opacity: 0.35
+
+
+		.wave
+			pointer-events: none
+			overflow: hidden
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 590px
+			height: 618px
+			background-color: #31F2CD
+			mask: url('../images/dist/rounds-progress.svg') no-repeat center
+			transform: translate(-50%, -50%)
+			&-fill
+				position: absolute
+				top: -25%
+				left: 50%
+				width: 200%
+				margin-top: -618px
+				margin-left: -590px
+				border-radius: 35%
+				background-color: $aqua-200
+				animation: wave 18s infinite linear
+		@keyframes wave
+			from
+				transform: rotate(0deg)
+			from
+				transform: rotate(360deg)
+
+
+// Section: Finance results
+.h-finance
+	&-descr
+		> p:last-child
+			margin-bottom: 0
 
 
 // Section: Invest steps
 .h-steps
+	padding-top: 100px
+	padding-bottom: 100px
+	background-color: $blue
 	&-title
 		> span
 			font-weight: $w-black
+	&-list
+		counter-reset: steps-list
 	&-item
-		.decor
-			display: flex
-			align-items: center
-			margin-bottom: 24px
-			.icon
-				flex: 0 0 auto
-				width: 30px
-				height: 30px
-				fill: $aqua-200
-			.line
-				flex: 1 1 auto
-				height: 1px
-				margin-left: 20px
-				background-color: $aqua-200
+		display: flex
+		.number
+			position: relative
+			flex: 0 0 auto
+			width: 60px
+			height: 60px
+			background: url('../images/dist/symbol.svg') no-repeat center/100%
+			&::after
+				counter-increment: steps-list
+				content: counter(steps-list)
+				position: absolute
+				top: 50%
+				left: 50%
+				z-index: 1
+				color: $white
+				font-size: 20px
+				font-weight: $w-bold
+				transform: translate(-50%, -50%)
 		.title
-			margin-bottom: 12px
-		.descr
-			margin-bottom: 0
+			flex: 1 1 auto
+			margin-left: 24px
+			font-size: 17px
+
+
+// Section: Testimonials
+.h-testimonials--blue
+	padding-top: 0
+	padding-bottom: 0
+	background: none
+	.section-heading
+		.title
+			color: $blue
+
 
 
 
