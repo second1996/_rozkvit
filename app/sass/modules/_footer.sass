@@ -6,8 +6,12 @@
 	background-color: $blue
 	&-content
 		position: relative
+		+media-breakpoint-down(md)
+			text-align: center
 		.title
 			margin-bottom: 0
+			+media-breakpoint-down(md)
+				margin-bottom: 32px
 			> span
 				color: $aqua-200
 		.btn
@@ -28,9 +32,14 @@
 .footer
 	padding-top: 100px
 	background-color: $aqua-400
+	[class*="col"]
+		flex-shrink: 1
 	&-title
 		padding-top: 12px
 		margin-bottom: 32px
+		+media-breakpoint-down(xl)
+			margin-bottom: 16px
+			padding-top: 0
 	&-info
 		.logo
 			display: inline-block
@@ -38,6 +47,8 @@
 		.descr
 			margin-bottom: 24px
 			color: $text-200
+			+media-breakpoint-down(xl)
+				max-width: 620px
 		.social
 			display: flex
 			flex-wrap: wrap
@@ -62,9 +73,15 @@
 		display: flex
 		margin-left: -40px
 		margin-right: -40px
+		+media-breakpoint-down(xl)
+			margin-left: -20px
+			margin-right: -20px
 		&-col
 			padding-left: 40px
 			padding-right: 40px
+			+media-breakpoint-down(xl)
+				padding-left: 20px
+				padding-right: 20px
 			> li
 				margin-bottom: 10px
 				> a
@@ -88,13 +105,13 @@
 				display: inline-block
 				color: $blue
 				font-weight: $w-medium
+				word-break: break-word
 				&:hover
 					color: darken($aqua-300, 5%)
 			> span
 				display: block
 				font-size: 14px
 				color: $text-200
-
 	&-copyright
 		margin-top: 64px
 		padding-top: 24px

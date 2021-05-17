@@ -4,12 +4,42 @@
 	left: 0
 	right: 0
 	z-index: 19
+	transition: background-color .3s ease
+	+media-breakpoint-down(xl)
+		position: fixed
+		background-color: $white
+		.header-logo svg path[fill="#fff"]
+			fill: $blue
+		.header-burger .burger-btn span
+			background-color: $blue
+	&._is-sticky
+		position: fixed
+		background-color: $white
+		.header-inner
+			padding-top: 20px
+			padding-bottom: 20px
+		.header-logo svg path[fill="#fff"]
+			fill: $blue
+		.header-nav nav > a
+			color: $text-200
+			&:hover
+				color: $blue
+		.fitofarmers-link span
+			color: $text-200
+			&:hover
+				color: $aqua-300
+		.header-burger .burger-btn span
+			background-color: $blue
 	&-inner
 		display: flex
 		align-items: center
 		justify-content: space-between
 		padding-top: 40px
 		padding-bottom: 40px
+		+media-breakpoint-down(xl)
+			height: 80px
+			padding-top: 0
+			padding-bottom: 0
 	&-logo
 		a
 			display: block
@@ -21,10 +51,62 @@
 			display: flex
 			align-items: center
 			> a
-				margin-left: 25px
-				margin-right: 25px
+				margin-left: 20px
+				margin-right: 20px
 				color: $white
 				font-weight: $w-medium
 				&:hover
 					color: $aqua-200
-	&-btn
+	&-links
+		display: flex
+		align-items: center
+		.fitofarmers
+			margin-right: 32px
+			&-link
+				display: flex
+				align-items: center
+				.icon
+					flex: 0 0 auto
+					width: 36px
+					height: 36px
+					fill: $aqua-200
+				span
+					max-width: 140px
+					margin-left: 12px
+					color: $white
+					font-size: 15px
+					font-weight: $w-medium
+					line-height: 1.3
+					transition: color .3s ease
+				&:hover
+					span
+						color: $aqua-200
+	&-burger
+		.burger-btn
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: space-between
+			width: 32px
+			min-width: auto
+			height: 20px
+			padding: 0
+			border-radius: 0
+			border: 0
+			background-color: $trsp
+			span
+				display: block
+				width: 100%
+				height: 2px
+				background-color: $white
+				transition: transform .3s ease, opacity .15s ease
+			&._is-toggled
+				> span
+					transform-origin: 50%
+					&:nth-child(1)
+						transform: translateY(9px) rotate(45deg)
+					&:nth-child(2)
+						opacity: 0
+						transform: scale(0)
+					&:nth-child(3)
+						transform: translateY(-9px) rotate(-45deg)

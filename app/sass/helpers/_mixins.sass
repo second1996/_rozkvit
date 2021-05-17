@@ -4,18 +4,26 @@
 	@if $size == 'xxl'
 		font-size: 42px
 		line-height: 1.3
+		+media-breakpoint-down(xl)
+			font-size: 36px
 
 	@else if $size == 'xl'
 		font-size: 36px
 		line-height: 1.3
+		+media-breakpoint-down(xl)
+			font-size: 28px
 
 	@else if $size == 'lg'
 		font-size: 24px
 		line-height: 1.4
+		+media-breakpoint-down(xl)
+			font-size: 20px
 
 	@else if $size == 'md'
 		font-size: 20px
 		line-height: 1.5
+		+media-breakpoint-down(xl)
+			font-size: 18px
 
 	@else if $size == 'sm'
 		font-size: 18px

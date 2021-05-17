@@ -4,16 +4,11 @@
 	 Base customize for forms
 	 ========================================================================== */
 ::placeholder
-	color: #000
-	text-transform: lowercase
+	color: #777
 
 input, textarea
 	outline: none
 	font-family: $userfont
-	&:focus:required:invalid
-		border-color: red
-	&:required:valid
-		border-color: accent
 
 button:disabled
 	pointer-events: none
@@ -35,12 +30,12 @@ button:disabled
 		appearance: none
 		display: block
 		width: 100%
-		margin-bottom: 20px
+		margin-bottom: 24px
 		color: $black
-		font-size: 16px
+		font-size: 18px
 		font-weight: $w-regular
-		border-radius: 0
-		border: 1px solid $blue
+		border-radius: 16px 0 16px 0
+		border: 1px solid $border
 		background-color: $trsp
 		background-clip: padding-box
 		color: $black
@@ -50,9 +45,9 @@ button:disabled
 			border-color: $aqua-300
 			background-color: $white
 	&-control
-		height: 60px
-		padding: 0 32px
-		line-height: 60px
+		height: 70px
+		padding: 0 24px
+		line-height: 70px
 		+media-breakpoint-down(xs)
 			height: 50px
 			line-height: 50px
@@ -63,5 +58,61 @@ button:disabled
 				-webkit-appearance: none
 				margin: 0
 	&-textarea
-		padding: 8px 16px
+		padding: 18px 24px
 		resize: none
+	&-submit
+		width: 100%
+		font-size: 18px
+
+	// Checkbox
+	&-checkbox
+		position: relative
+		display: inline-flex
+		flex-wrap: wrap
+		align-items: center
+		margin-top: 24px
+		margin-bottom: 0
+		input[type="checkbox"]
+			position: absolute
+			top: 0
+			left: 3px
+			opacity: 0
+		span
+			user-select: none
+			position: relative
+			width: 100%
+			margin-bottom: 0
+			padding-left: 32px
+			color: $text-200
+			font-size: 15px
+			line-height: 20px
+			&::before,
+			&::after
+				content: ''
+				flex: 0 0 auto
+				position: absolute
+				top: 0
+				left: 0
+				width: 20px
+				height: 20px
+				border-radius: 6px 0 6px 0
+				border: 1px solid $border
+				background-color: $white
+				transition: border .3s ease, opacity .15s ease
+			&::after
+				border-color: $blue
+				background: $blue url('../images/dist/icons/check.svg') no-repeat center/10px
+				opacity: 0
+			> a
+				color: $blue
+				font-weight: $w-medium
+				&:hover
+					color: $black
+			&:hover
+				cursor: pointer
+				&::before,
+				&::after
+					border-color: $blue
+		input:checked + span::after
+			opacity: 1
+

@@ -5,74 +5,72 @@
 	padding-left: 0!important
 	&.fade
 		.modal-dialog
-			transform: scale(1.05)
+			transform: scale(0.95)
+		.modal-content::before
+			top: -60px
+			left: -60px
+			opacity: 0
 	&.show
 		.modal-dialog
 			transform: none
+		.modal-content::before
+			top: -85px
+			left: -85px
+			opacity: 1
 
 	&-dialog
 		+media-breakpoint-up(sm)
 			max-width: 600px
 
 	&-content
-		border-radius: 0
+		border-radius: 64px 0 64px 0
 		border: 0
+		&::before
+			content: ''
+			position: absolute
+			top: -85px
+			left: -85px
+			z-index: -1
+			width: 168px
+			height: 171px
+			background: url('../images/dist/mint-leaves.png') no-repeat center/cover
+			transition: .3s ease
 
 	&-header
 		align-items: center
-		padding: 40px 40px 0
+		justify-content: center
+		padding: 48px 64px 0
 		border-bottom: 0
-		+media-breakpoint-down(xs)
-			padding: 20px 20px 0
 
 	&-title
-		padding-right: 30px
-		font-size: 20px
+		color: $blue
+		font-size: 32px
 		font-weight: $w-bold
-		line-height: 1.2
+		text-align: center
 
 	&-close
-		flex: 0 0 auto
-		display: flex
-		flex-direction: column
-		align-items: center
-		justify-content: space-between
-		width: 46px
-		height: 46px
-		box-sizing: border-box
-		outline: none !important
-		transition: background-color .3s ease
-		+media-breakpoint-down(xs)
-			width: 36px
-			height: 36px
-		&.btn
-			padding: 10px
-			+media-breakpoint-down(xs)
-				padding: 5px
-		> span
-			display: block
-			width: 100%
-			height: 2px
-			background-color: $aqua-300
-			transform-origin: 50%
-			transition: transform .3s ease, opacity .15s ease
-			&:nth-child(1)
-				transform: translateY(10px) rotate(45deg)
-			&:nth-child(2)
-				transform: translateY(-10px) rotate(-45deg)
-		&:hover
-			> span
-				background-color: $white
-				&:nth-child(1)
-					transform: translateY(10px) rotate(0deg)
-				&:nth-child(2)
-					transform: translateY(-10px) rotate(0deg)
+		position: absolute
+		top: 32px
+		right: 24px
+		min-width: auto
+		width: auto
+		height: auto
+		padding: 4px
+		border-radius: 0
+		background-color: $trsp
+		color: $aqua-300
+		.icon
+			flex: 0 0 auto
+			width: 20px
+			height: 20px
+		&:hover,
+		&:focus
+			background-color: $trsp
+			color: $blue
 
 	// Modal body
 	&-body
-		padding: 40px
-		+media-breakpoint-down(xs)
-			padding: 20px
+		padding: 48px 64px 64px
 
 	&-descr
 		font-size: 17px

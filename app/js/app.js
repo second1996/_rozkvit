@@ -13,10 +13,39 @@ SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 // Import Popper.js
 import { createPopper } from '@popperjs/core'
 
-// Import Bootstrap bundle
+// Import vendor jQuery plugin example (not module)
 require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') // Popper lib
+require('../../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js') // jQuery Mask input
 
 document.addEventListener('DOMContentLoaded', () => {
+	/**
+	 * jQuery input mask
+	 */
+	$('input[type="tel"]').mask('+38 099 999 99 99').attr('autocomplete', 'off')
+
+
+	/**
+	 * Sticky header
+	 */
+	const heroesHeight = $('.h-heroes').outerHeight() || 500
+
+	$(window).on('scroll load', function() {
+		if ($(window).scrollTop() > heroesHeight) {
+			$('.header').addClass('_is-sticky')
+		} else {
+			$('.header').removeClass('_is-sticky')
+		}
+	})
+
+
+	/**
+	 * Mobile menu
+	 */
+	$('.header-burger .burger-btn').on('click', function() {
+		$(this).toggleClass('_is-toggled')
+		$('.m-menu').toggleClass('_is-shown')
+	})
+
 
 	/**
 	 * Advantages slideshow slider
@@ -41,12 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Testimonials slider
 	 */
 	new Swiper('.h-testimonials-slider .swiper-container', {
-		slidesPerView: 2,
+		slidesPerView: 1,
 		spaceBetween: 40,
 		navigation: {
 			prevEl: '.h-testimonials-slider .swiper-button-prev',
 			nextEl: '.h-testimonials-slider .swiper-button-next'
 		},
+		breakpoints: {
+			992: {
+				slidesPerView: 2,
+			}
+		}
 	})
 
 
