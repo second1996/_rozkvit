@@ -25,6 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	/**
+	 * Smooth scroll
+	 */
+	$('a[data-anchor]').bind('click.smoothscroll', function(){
+		const headerHeight = $('.header').outerHeight() - 1
+		const target = $(this).attr('href')
+		const bl_top = $(target).offset().top - headerHeight
+
+		$('body, html').animate({scrollTop: bl_top}, 1000)
+
+		return false
+	})
+
+
+	/**
 	 * Sticky header
 	 */
 	const heroesHeight = $('.h-heroes').outerHeight() || 500

@@ -4,7 +4,7 @@
 	<main class="main">
 
 		<!-- Section: Банер -->
-		<section class="h-heroes">
+		<section id="h-heroes" class="h-heroes">
 			<div class="container">
 				<div class="h-heroes-content">
 					<h1 class="title text-uppercase"><span>Розквіт.</span> Квітучі інвестиції в лікарські рослини</h1>
@@ -18,7 +18,7 @@
 		</section>
 
 		<!-- Section: Про проєкт -->
-		<section class="h-about section">
+		<section id="h-about" class="h-about section">
 			<div class="container">
 				<div class="row justify-content-between">
 					<div class="col-xl-7 col-xxl-6">
@@ -64,13 +64,13 @@
 		</section>
 
 		<!-- Section: Напрямки роботи -->
-		<section class="h-direction section-bg">
+		<section id="h-direction" class="h-direction section-bg">
 			<div class="container">
 				<div class="section-heading mx-auto mb-64 text-center">
 					<h2 class="suptitle text-aqua-300">Ми робимо</h2>
 					<h3 class="title text-blue">Напрямки роботи платформи</h3>
 				</div>
-				<div class="row row-cols-md-2 row-cols-xl-4 row-items-48">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 row-items-48">
 					<div class="col">
 						<div class="h-direction-item">
 							<img src="./images/dist/icons/plant.svg" class="picture" alt="">
@@ -100,7 +100,7 @@
 		</section>
 
 		<!-- Section: Чому лікарські рослини? -->
-		<section class="h-advantages section">
+		<section id="h-advantages" class="h-advantages section">
 			<div class="container">
 				<div class="section-heading mx-auto mb-64 text-center">
 					<!-- <h2 class="suptitle text-aqua-300">Ключові переваги</h2> -->
@@ -171,7 +171,7 @@
 		</section>
 
 		<!-- Section: Стратегічна мета -->
-		<section class="h-strategy section-pattern mt-150">
+		<section id="h-strategy" class="h-strategy section-pattern mt-150">
 			<div class="container">
 				<div class="h-strategy-content section-heading mx-auto">
 					<h2 class="title text-white text-xxl">Обирай квітучі інвестиції <span>під 15-18% річних</span></h2>
@@ -181,7 +181,7 @@
 		</section>
 
 		<!-- Section: Розквіт на карті -->
-		<section class="h-map section">
+		<section id="h-map" class="h-map section">
 			<div class="container">
 				<div class="section-heading mx-auto mb-64 text-center">
 					<h2 class="suptitle text-aqua-300">Творці змін</h2>
@@ -232,10 +232,10 @@
 		</section>
 
 		<!-- Section: Збір інвестицій -->
-		<section class="h-invest section-pattern mt-100">
+		<section id="h-invest" class="h-invest section-pattern mt-100">
 			<div class="container">
 				<h2 class="h-invest-title mb-64 text-white text-xxl w-regular"><span>Інвестиційний проєкт Розквіт</span> вкладає кошти в:</h2>
-				<div class="row row-cols-3 row-items-32">
+				<div class="row row-cols-1 row-cols-md-3 row-items-32">
 					<div class="col">
 						<div class="h-invest-item">
 							<img src="./images/dist/icons/seeding.svg" class="picture" alt="">
@@ -259,7 +259,7 @@
 		</section>
 
 		<!-- Section: Презентаційний ролик -->
-		<section class="h-presentation mt-100">
+		<section id="h-presentation" class="h-presentation mt-100">
 			<div class="container">
 				<div class="h-presentation-inner">
 					<div class="h-presentation-content section-heading mx-auto">
@@ -280,7 +280,7 @@
 		</section>
 
 		<!-- Section: Результати інвестицій -->
-		<section class="h-rounds mt-100">
+		<section id="h-rounds" class="h-rounds mt-100">
 			<div class="container">
 				<div class="h-rounds-wrapper">
 					<div class="h-rounds-first">
@@ -313,10 +313,6 @@
 						<div class="wave">
 							<div class="wave-fill" style="height: 180%;"></div>
 						</div>
-						<svg class="d-none symbol" width="590" height="618" viewBox="0 0 590 618" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M496.041 84.351L384.34 150.54V96.5213C384.526 72.2814 375.364 48.9499 358.855 31.6169C342.345 14.2839 319.827 4.35628 296.213 4H294.896C264.757 4.08976 234.807 8.88945 206.076 18.234V150.682L160.522 123.708C140.219 111.456 116.026 107.925 93.2007 113.882C70.3755 119.839 50.7636 134.803 38.6283 155.521C23.0819 182.667 11.7372 212.127 5 242.847L116.701 309.035L71.1471 336.009C50.6089 348.032 35.5339 367.901 29.2085 391.285C22.8832 414.669 25.8206 439.671 37.3802 460.842C52.5681 487.971 71.7194 512.55 94.1667 533.72L205.868 467.532V521.479C205.7 545.701 214.858 569.011 231.349 586.338C247.84 603.665 270.33 613.607 293.925 614H295.035C325.269 613.965 355.318 609.164 384.132 599.766V467.532L429.686 494.505C450.004 506.742 474.202 510.264 497.033 504.309C519.864 498.354 539.488 483.401 551.649 462.692C567.126 435.492 578.378 405.981 585 375.224L473.299 309.035L518.853 282.062C539.401 270.05 554.494 250.192 560.844 226.811C567.194 203.43 564.288 178.421 552.759 157.23C537.573 130.118 518.447 105.542 496.041 84.351V84.351Z" fill="#00E5B9"/>
-							<path d="M386.132 599.766V471.04L428.654 496.218C428.657 496.22 428.66 496.222 428.663 496.223C449.437 508.732 474.185 512.336 497.538 506.244C520.892 500.153 540.95 484.861 553.374 463.705L553.381 463.693L553.387 463.681C568.966 436.303 580.291 406.601 586.955 375.645L587.258 374.237L586.02 373.503L477.223 309.036L519.862 283.789C519.864 283.788 519.865 283.787 519.867 283.786C540.874 271.504 556.289 251.21 562.774 227.335C569.259 203.46 566.292 177.92 554.515 156.274L554.509 156.263L554.503 156.252C539.22 128.966 519.969 104.229 497.416 82.898L496.041 84.351L495.022 82.6304L386.34 147.03V96.5286C386.528 71.78 377.174 47.9496 360.303 30.2375C343.429 12.5218 320.402 2.36473 296.244 2.00023L296.228 2H296.213L294.896 1.99999L294.89 2.00001C264.543 2.09039 234.386 6.92332 205.457 16.3321L204.076 16.7814V18.234V147.173L161.555 121.996C161.553 121.995 161.55 121.993 161.548 121.992C140.788 109.466 116.043 105.853 92.6957 111.947C69.3469 118.041 49.3007 133.344 36.9025 154.51L36.8976 154.519L36.8927 154.527C21.2448 181.851 9.82696 211.501 3.04643 242.419L2.73674 243.831L3.98045 244.568L112.777 309.035L70.1367 334.283C70.1356 334.284 70.1346 334.284 70.1335 334.285C49.1352 346.578 33.7371 366.883 27.2779 390.762C20.8186 414.642 23.817 440.175 35.6249 461.8L35.6299 461.809L35.6351 461.819C50.9215 489.124 70.1982 513.864 92.7945 535.175L93.8903 536.208L95.1862 535.44L203.868 471.041V521.472C203.698 546.202 213.049 570.011 229.9 587.717C246.755 605.426 269.752 615.597 293.892 616L293.909 616H293.925H295.035H295.037C325.481 615.965 355.739 611.131 384.752 601.667L386.132 601.217V599.766Z" stroke="#00E5B9" stroke-opacity="0.15" stroke-width="4"/>
-						</svg>
 					</div><!-- /.h-rounds-progress -->
 					<div class="h-rounds-second">
 						<h2 class="h-rounds-title mb-64">Цілі другого раунду <span>інвестицій</span></h2>
@@ -340,7 +336,7 @@
 		</section>
 
 		<!-- Section: Фінансові показники -->
-		<section class="h-finance">
+		<section id="h-finance" class="h-finance">
 			<div class="container">
 				<div class="row row-items-48 align-items-end justify-content-between">
 					<div class="col-xl-6 col-xxl-5">
@@ -349,7 +345,7 @@
 							<h3 class="title text-blue">Інвестиційна привабливість Розквіту</h3>
 						</div>
 						<div class="h-finance-descr">
-							<p>Інвестиційна проєкт платформи Розквіт, створений у форматі кооперативу і діє за максимально прозорою схемою. Кожен має можливість стати інвестором, який підтримує український бізнес.</p>
+							<p>Інвестиційний проєкт платформи Розквіт, створений у форматі кооперативу і діє за максимально прозорою схемою. Кожен має можливість стати інвестором, який підтримує український бізнес.</p>
 							<p>Інвестиційну модель було прораховано фінансовими експертами компанії Х.</p>
 						</div><!-- /.h-finance-descr -->
 					</div><!-- /.col -->
@@ -380,7 +376,7 @@
 		</section>
 
 		<!-- Section: Завантажити презентацію -->
-		<section class="h-download section-pattern mt-150">
+		<section id="h-download" class="h-download section-pattern mt-150">
 			<div class="container">
 				<div class="h-download-content">
 					<div class="row align-items-center">
@@ -400,7 +396,7 @@
 		</section>
 
 		<!-- Section: Наші партнери -->
-		<section class="h-partners d-none section">
+		<section id="h-partners" class="h-partners d-none section">
 			<div class="container">
 				<div class="section-heading mx-auto mb-64 text-center">
 					<h2 class="suptitle text-aqua-300">Співпраця</h2>
@@ -443,7 +439,7 @@
 		</section>
 
 		<!-- Section: Про нас говорять -->
-		<section class="h-testimonials h-testimonials--blue section-pattern mt-150">
+		<section id="h-testimonials" class="h-testimonials h-testimonials--blue section-pattern mt-150">
 			<div class="container">
 				<div class="section-heading text-center mw-100 mb-64">
 					<h2 class="suptitle text-aqua-300">Про нас говорять</h2>
@@ -510,10 +506,10 @@
 		</section>
 
 		<!-- Section: Кроки для початку інвестування -->
-		<section class="h-steps section-pattern mt-150">
+		<section id="h-steps" class="h-steps section-pattern mt-150">
 			<div class="container">
 				<h2 class="h-steps-title mb-64 text-white text-xxl w-regular"><span>4 кроки</span> до інвестування в Розквіт</h2>
-				<div class="h-steps-list row row-cols-sm-2 row-cols-xxl-4 row-items-32">
+				<div class="h-steps-list row row-cols-1 row-cols-md-2 row-cols-xxl-4 row-items-32">
 					<div class="col">
 						<div class="h-steps-item">
 							<div class="number"></div>
@@ -546,7 +542,7 @@
 		</section>
 
 		<!-- Section: FAQ -->
-		<section class="h-faq mt-150">
+		<section id="h-faq" class="h-faq mt-150">
 			<div class="container">
 				<div class="section-heading mx-auto mb-64 text-center">
 					<h2 class="suptitle text-aqua-300">Часті запитання</h2>

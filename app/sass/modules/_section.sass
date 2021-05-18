@@ -27,6 +27,11 @@ section
 		height: 100%
 		background: url('../images/dist/pattern.svg') no-repeat center/cover
 		opacity: 0.05
+		+media-breakpoint-down(lg)
+			background-size: 175%
+			background-position-x: left
+		+media-breakpoint-down(xs)
+			background-size: 200%
 
 .section-heading
 	max-width: 770px

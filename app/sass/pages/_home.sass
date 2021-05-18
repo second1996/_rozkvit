@@ -2,21 +2,15 @@
 .h-heroes
 	height: 100vh
 	min-height: 600px
-	&::after
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		z-index: -1
-		background-color: rgba($blue, 0.6)
+	max-height: 720px
 	.container
 		display: flex
 		align-items: center
 		justify-content: center
 		height: 100%
 	&-content
+		position: relative
+		z-index: 2
 		max-width: 820px
 		margin-left: auto
 		margin-right: auto
@@ -25,20 +19,38 @@
 			margin-bottom: 16px
 			color: $white
 			font-size: 56px
+			+media-breakpoint-down(lg)
+				font-size: 50px
+			+media-breakpoint-down(md)
+				font-size: 44px
+			+media-breakpoint-down(sm)
+				font-size: 38px
+			+media-breakpoint-down(xs)
+				font-size: 30px
 			> span
 				color: $aqua-200
 		.descr
 			color: $white
 		.btn
 			min-width: 230px
+			+media-breakpoint-down(xs)
+				margin-top: 32px
 	&-video
 		position: absolute
 		top: 0
 		left: 0
-		z-index: -1
+		z-index: 1
 		width: 100%
 		height: 100%
 		background-color: $blue
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: rgba($blue, 0.6)
 		> video
 			width: 100%
 			height: 100%
@@ -53,6 +65,8 @@
 				display: block
 				font-size: 50%
 				font-weight: $w-medium
+				+media-breakpoint-down(md)
+					font-size: 65%
 
 
 // Section: Direction of work
@@ -63,6 +77,9 @@
 			width: 80px
 			height: 80px
 			margin-bottom: 32px
+			+media-breakpoint-down(sm)
+				width: 60px
+				height: 60px
 		.title
 			margin-bottom: 0
 
@@ -70,11 +87,11 @@
 // Section: Advantages
 .h-advantages
 	&-slider
-		overflow: hidden
 		position: relative
 		height: 100%
 		margin-right: 20px
-		border-radius: 32px 0 32px 0
+		+media-breakpoint-down(xl)
+			margin-right: 0
 		.swiper-slide
 			height: auto
 		.swiper-button-prev,
@@ -86,14 +103,22 @@
 			opacity: 0.75
 		.swiper-button-prev
 			left: 32px
+			+media-breakpoint-down(xs)
+				left: 24px
 		.swiper-button-next
 			right: 32px
+			+media-breakpoint-down(xs)
+				right: 24px
 	&-photo
 		position: relative
 		width: 100%
 		height: 100%
 		+media-breakpoint-down(xl)
 			height: 400px
+		+media-breakpoint-down(sm)
+			height: 320px
+		+media-breakpoint-down(xs)
+			height: 280px
 		.label
 			position: absolute
 			left: 32px
@@ -103,9 +128,15 @@
 			background-color: $aqua-300
 			color: $white
 			+font-size(sm)
+			+media-breakpoint-down(xs)
+				left: 24px
+				bottom: 24px
+				padding: 8px 16px
+				font-size: 15px
 		img
 			width: 100%
 			height: 100%
+			border-radius: 32px 0 32px 0
 			object-fit: cover
 	&-list
 		counter-reset: advantages-list
@@ -122,6 +153,10 @@
 		display: flex
 		align-items: center
 		padding-right: 20px
+		+media-breakpoint-down(sm)
+			flex-basis: 100%
+			margin-bottom: 32px
+			padding-right: 0
 		.number
 			position: relative
 			flex: 0 0 auto
@@ -152,6 +187,12 @@
 	padding-top: 80px
 	padding-bottom: 80px
 	background-color: $blue
+	+media-breakpoint-down(sm)
+		padding-top: 60px
+		padding-bottom: 60px
+	+media-breakpoint-down(xs)
+		padding-top: 45px
+		padding-bottom: 45px
 	&-content
 		text-align: center
 
@@ -164,12 +205,22 @@
 	+media-breakpoint-down(xl)
 		padding-top: 100px
 		padding-bottom: 100px
+	+media-breakpoint-down(sm)
+		padding-top: 60px
+		padding-bottom: 60px
+		&::before
+			display: none
 	&-title
 		> span
 			font-weight: $w-black
 	&-item
 		.picture
+			width: 80px
+			height: 80px
 			margin-bottom: 24px
+			+media-breakpoint-down(sm)
+				width: 60px
+				height: 60px
 
 
 // Section: Presentation
@@ -177,14 +228,19 @@
 	&-inner
 		overflow: hidden
 		position: relative
+		z-index: 2
 		padding-top: 100px
 		padding-bottom: 100px
 		border-radius: 64px 0 64px 0
 		+media-breakpoint-down(xl)
-			padding-top: 64px
-			padding-bottom: 64px
+			padding-top: 60px
+			padding-bottom: 60px
 	&-content
+		position: relative
+		z-index: 2
 		text-align: center
+		padding-left: 20px
+		padding-right: 20px
 		.play-button
 			display: inline-block
 			&:hover
@@ -192,6 +248,12 @@
 			&-icon
 				width: 100px
 				height: 100px
+				+media-breakpoint-down(sm)
+					width: 80px
+					height: 80px
+				+media-breakpoint-down(xs)
+					width: 60px
+					height: 60px
 				.play
 					fill: $white
 					transition: fill .3s ease
@@ -203,11 +265,18 @@
 						fill: $aqua-200
 					.symbol
 						fill: $white
+		.title
+			+media-breakpoint-down(xs)
+				font-size: 26px
+		.descr
+			+media-breakpoint-down(sm)
+				margin-top: 16px
+				font-size: 15px
 	&-photo
 		position: absolute
 		top: 0
 		left: 0
-		z-index: -1
+		z-index: 1
 		width: 100%
 		height: 100%
 		background-color: $blue
@@ -216,7 +285,6 @@
 			position: absolute
 			top: 0
 			left: 0
-			z-index: 1
 			width: 100%
 			height: 100%
 			background-color: rgba($text-300, 0.75)
@@ -232,6 +300,14 @@
 	padding-top: 75px
 	padding-bottom: 75px
 	background-color: $blue
+	+media-breakpoint-down(sm)
+		padding-top: 60px
+		padding-bottom: 60px
+		&::before
+			display: none
+	+media-breakpoint-down(xs)
+		padding-top: 45px
+		padding-bottom: 45px
 	&-content
 		position: relative
 		+media-breakpoint-down(md)
@@ -255,6 +331,10 @@
 		background: url('../images/dist/icons/download.svg') no-repeat center/100%
 		transform: translateY(-50%) rotate(12deg)
 		opacity: 0.1
+		+media-breakpoint-down(lg)
+			right: 82%
+		+media-breakpoint-down(sm)
+			right: 60%
 
 
 // Section: Partners
@@ -285,11 +365,18 @@
 		.section-heading
 			.title
 				color: $blue
+		.swiper-button-prev,
+		.swiper-button-next
+			+media-breakpoint-down(sm)
+				background-color: $white
+				color: $blue
 	&-slider
 		position: relative
-		margin-right: 20px
 		padding-left: 95px
 		padding-right: 95px
+		+media-breakpoint-down(sm)
+			padding-left: 0
+			padding-right: 0
 		.swiper-button-prev,
 		.swiper-button-next
 			position: absolute
@@ -298,8 +385,16 @@
 			transform: translateY(-50%)
 		.swiper-button-prev
 			left: 0
+			+media-breakpoint-down(sm)
+				left: 32px
+			+media-breakpoint-down(xs)
+				left: 24px
 		.swiper-button-next
 			right: 0
+			+media-breakpoint-down(sm)
+				right: 32px
+			+media-breakpoint-down(xs)
+				right: 24px
 	&-item
 		overflow: hidden
 		position: relative
@@ -308,6 +403,8 @@
 		border-radius: 32px 0 32px 0
 		+media-breakpoint-down(xl)
 			height: 320px
+		+media-breakpoint-down(sm)
+			height: 260px
 		&::before
 			content: ''
 			position: absolute
@@ -336,11 +433,23 @@
 			visibility: hidden
 			opacity: 0
 			transform: scale(0.95)
+			+media-breakpoint-down(sm)
+				margin-top: -40px
+				margin-left: -40px
+			+media-breakpoint-down(xs)
+				margin-top: -35px
+				margin-left: -35px
 			&:hover
 				transform: scale(1.1)
 			&-icon
 				width: 100px
 				height: 100px
+				+media-breakpoint-down(sm)
+					width: 80px
+					height: 80px
+				+media-breakpoint-down(xs)
+					width: 70px
+					height: 70px
 				.play
 					fill: $white
 					transition: fill .3s ease
@@ -358,14 +467,20 @@
 			bottom: 0
 			padding: 32px
 			transition: $trs
+			+media-breakpoint-down(xs)
+				padding: 24px
 			&-name
 				color: $white
 				font-size: 32px
 				font-weight: $w-black
 				+media-breakpoint-down(xl)
 					font-size: 26px
+				+media-breakpoint-down(sm)
+					font-size: 20px
 			&-post
 				color: $white
+				+media-breakpoint-down(sm)
+					font-size: 15px
 		.preview
 			width: 100%
 			height: 100%
@@ -383,6 +498,8 @@
 
 	// SVG map
 	#ukraine-map
+		width: 100%
+		height: 100%
 		.regions > path
 			stroke: #414141
 			stroke-width: 0.5px
@@ -406,6 +523,7 @@
 			position: relative
 			min-width: 280px
 			margin-left: 30px
+			margin-right: 10px
 			padding: 20px 25px
 			border-radius: 24px 0 24px 0
 			background-color: $blue
@@ -449,9 +567,20 @@
 		top: 65%
 		left: 0
 		max-width: 270px
+		+media-breakpoint-down(md)
+			top: 60%
+			max-width: 240px
+		+media-breakpoint-down(sm)
+			position: static
+			display: flex
+			max-width: 100%
+			margin-top: 24px
 		.note
 			&:not(:last-child)
 				margin-bottom: 24px
+				+media-breakpoint-down(md)
+					margin-bottom: 12px
+					padding-right: 12px
 			&-title
 				color: $text-300
 				font-size: 15px
@@ -512,6 +641,10 @@
 			flex-wrap: wrap
 	&-title
 		font-size: 34px
+		+media-breakpoint-down(md)
+			font-size: 30px
+		+media-breakpoint-down(xs)
+			font-size: 24px
 		> span
 			font-weight: $w-regular
 
@@ -547,6 +680,10 @@
 						display: block
 						font-size: 32px
 						font-weight: $w-black
+						+media-breakpoint-down(md)
+							font-size: 30px
+						+media-breakpoint-down(xs)
+							font-size: 24px
 
 	// Second round
 	&-second
@@ -603,6 +740,11 @@
 						display: block
 						font-size: 32px
 						font-weight: $w-black
+						line-height: 1.3
+						+media-breakpoint-down(md)
+							font-size: 30px
+						+media-breakpoint-down(xs)
+							font-size: 24px
 
 	// Invest status
 	&-progress
@@ -626,6 +768,8 @@
 			margin-top: 24px
 		+media-breakpoint-down(md)
 			margin-top: 48px
+		+media-breakpoint-down(sm)
+			margin-top: 0
 		.money
 			position: absolute
 			top: 50%
@@ -673,7 +817,6 @@
 			transform: translate(-50%, -50%)
 			opacity: 0.35
 
-
 		.wave
 			pointer-events: none
 			overflow: hidden
@@ -684,7 +827,11 @@
 			height: 618px
 			background-color: #31F2CD
 			mask: url('../images/dist/rounds-progress.svg') no-repeat center
+			mask-size: 100%
 			transform: translate(-50%, -50%)
+			+media-breakpoint-down(sm)
+				width: 100%
+				height: 100%
 			&-fill
 				position: absolute
 				top: -25%
@@ -695,6 +842,9 @@
 				border-radius: 35%
 				background-color: $aqua-200
 				animation: wave 18s infinite linear
+				+media-breakpoint-down(sm)
+					margin-top: -100%
+					margin-left: -100%
 		@keyframes wave
 			from
 				transform: rotate(0deg)
@@ -714,6 +864,14 @@
 	padding-top: 100px
 	padding-bottom: 100px
 	background-color: $blue
+	+media-breakpoint-down(sm)
+		padding-top: 60px
+		padding-bottom: 60px
+		&::before
+			display: none
+	+media-breakpoint-down(xs)
+		padding-top: 45px
+		padding-bottom: 45px
 	&-title
 		> span
 			font-weight: $w-black
@@ -727,6 +885,9 @@
 			width: 60px
 			height: 60px
 			background: url('../images/dist/symbol.svg') no-repeat center/100%
+			+media-breakpoint-down(sm)
+				height: 46px
+				width: 46px
 			&::after
 				counter-increment: steps-list
 				content: counter(steps-list)
@@ -738,6 +899,8 @@
 				font-size: 20px
 				font-weight: $w-bold
 				transform: translate(-50%, -50%)
+				+media-breakpoint-down(sm)
+					font-size: 18px
 		.title
 			flex: 1 1 auto
 			margin-left: 24px

@@ -4,6 +4,14 @@
 	padding-top: 60px
 	padding-bottom: 60px
 	background-color: $blue
+	+media-breakpoint-down(sm)
+		padding-top: 60px
+		padding-bottom: 60px
+		&::before
+			display: none
+	+media-breakpoint-down(xs)
+		padding-top: 45px
+		padding-bottom: 45px
 	&-content
 		position: relative
 		+media-breakpoint-down(md)
@@ -27,6 +35,12 @@
 		background: url('../images/dist/icons/telegram.svg') no-repeat center/100%
 		transform: translateY(-50%) rotate(12deg)
 		opacity: 0.1
+		+media-breakpoint-down(lg)
+			right: 86%
+		+media-breakpoint-down(sm)
+			right: -200px
+		+media-breakpoint-down(sm)
+			right: -160px
 
 // Site footer
 .footer
@@ -117,7 +131,8 @@
 		padding-top: 24px
 		padding-bottom: 24px
 		border-top: 1px solid #e8e8e8
-		text-align: center
 		color: #a1a1a1
+		font-size: 16px
+		text-align: center
 		> span
 			display: block
