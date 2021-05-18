@@ -123,6 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		placement: 'right',
 	})
 
+	if(window.matchMedia('(max-width: 767.98px)').matches) {
+		popperInstance.setOptions({
+			placement: 'bottom',
+			modifiers: [{ name: 'eventListeners', enabled: false }],
+		})
+	}
+
 	map.addEventListener('mousemove', (e) => {
 		const mouseX = e.clientX
 		const mouseY = e.clientY
@@ -153,6 +160,5 @@ document.addEventListener('DOMContentLoaded', () => {
 			modifiers: [{ name: 'eventListeners', enabled: false }],
 		})
 	})
-
 
 })
