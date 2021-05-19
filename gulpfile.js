@@ -28,7 +28,7 @@ function browsersync() {
 		ghostMode: { clicks: false },
 		notify: false,
 		online: true,
-		// tunnel: 'rozkvit', // Attempt to use the URL https://rozkvit.loca.lt
+		tunnel: 'rozkvit', // Attempt to use the URL https://rozkvit.loca.lt
 	})
 }
 

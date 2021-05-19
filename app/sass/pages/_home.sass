@@ -520,7 +520,8 @@
 		z-index: 99
 		&[data-show]
 			visibility: visible
-			display: block
+			.tooltip-wrapper
+				opacity: 1
 		&-wrapper
 			overflow: hidden
 			position: relative
@@ -530,6 +531,8 @@
 			padding: 20px 25px
 			border-radius: 24px 0 24px 0
 			background-color: $blue
+			opacity: 0
+			transition: opacity .3s ease
 			+media-breakpoint-down(sm)
 				margin-top: 20px
 				margin-left: 20px

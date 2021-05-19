@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	 */
 	function loadbar() {
 		let overlay  = document.querySelector('#preloader'),
-				progress = document.querySelector('#preloader-progress'),
 				status   = document.querySelector('#preloader-status'),
 				img      = document.images,
 				counter  = 0,
@@ -33,18 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			counter += 1
 			const percent = ((100/total*counter) << 0) + '%'
 
-			progress.style.width = percent
 			status.innerHTML = percent
 
 			if (counter === total) return doneLoading()
 		}
 		function doneLoading() {
 			setTimeout(() => {
-				overlay.style.opacity = 0
+				overlay.setAttribute('data-aos', 'zoom-out')
 			}, 600)
 			setTimeout(() => {
 				overlay.remove()
-			}, 1200)
+			}, 2000)
 		}
 		for(let i = 0; i < total; i++) {
 			let tImg = new Image()
@@ -110,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('.header-burger .burger-btn').on('click', function() {
 		$(this).toggleClass('_is-toggled')
 		$('.m-menu').toggleClass('_is-shown')
+		$('.m-menu-navigation nav a').on('click', function() {
+			$('.header-burger .burger-btn').removeClass('_is-toggled')
+			$('.m-menu').removeClass('_is-shown')
+		})
 	})
 
 
@@ -175,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		placement: 'right',
 	})
 
-	if(window.matchMedia('(max-width: 767.98px)').matches) {
+	if (window.matchMedia('(max-width: 767.98px)').matches) {
 		popperInstance.setOptions({
 			placement: 'bottom',
 			modifiers: [{ name: 'eventListeners', enabled: false }],
@@ -186,17 +188,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		const mouseX = e.clientX
 		const mouseY = e.clientY
 
+		const ttTitle = tooltip.querySelector('.tooltip-title')
+		const ttFarmers = tooltip.querySelector('.tooltip-info .farmers-count')
+		const ttFarmersArea = tooltip.querySelector('.tooltip-info .farmers-area > em')
+		const ttProcurers = tooltip.querySelector('.tooltip-info .procurers-count')
+
 		virtualElement.getBoundingClientRect = generateGetBoundingClientRect(mouseX, mouseY)
 
 		// Show the tooltip
-		if( e.target.getAttribute('data-region') != null ) {
+		if (e.target.getAttribute('data-region') != null) {
 			tooltip.setAttribute('data-show', '')
-			tooltip.querySelector('.tooltip-title').textContent = e.target.getAttribute('data-region')
-			tooltip.querySelector('.tooltip-info .farmers-count').textContent = e.target.getAttribute('data-farmers')
-			tooltip.querySelector('.tooltip-info .farmers-area > em').textContent = e.target.getAttribute('data-farmers-area')
-			tooltip.querySelector('.tooltip-info .procurers-count').textContent = e.target.getAttribute('data-procurers')
+			ttTitle.textContent = e.target.getAttribute('data-region')
+			ttFarmers.textContent = e.target.getAttribute('data-farmers')
+			ttFarmersArea.textContent = e.target.getAttribute('data-farmers-area')
+			ttProcurers.textContent = e.target.getAttribute('data-procurers')
 		} else {
-			tooltip.removeAttribute('data-show');
+			tooltip.removeAttribute('data-show')
 		}
 
 		// Update position
@@ -205,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	map.addEventListener('mouseleave', () => {
 		// Hide the tooltip
-		tooltip.removeAttribute('data-show');
+		tooltip.removeAttribute('data-show')
 
 		// Disable the event listeners
 		popperInstance.setOptions({

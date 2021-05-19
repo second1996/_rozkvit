@@ -24,6 +24,8 @@
 			color: $text-200
 			&:hover
 				color: $blue
+			&::after
+				border-bottom-color: $blue
 		.fitofarmers-link span
 			color: $text-200
 			&:hover
@@ -51,12 +53,25 @@
 			display: flex
 			align-items: center
 			> a
+				position: relative
 				margin-left: 20px
 				margin-right: 20px
 				color: $white
 				font-weight: $w-medium
 				&:hover
 					color: $aqua-200
+					&::after
+						transform: scaleX(1)
+				&::after
+					content: ''
+					position: absolute
+					top: 100%
+					left: 0
+					right: 0
+					border-bottom: 1px solid $aqua-200
+					transform: scaleX(0)
+					transform-origin: left center
+					transition: transform .3s ease
 	&-links
 		display: flex
 		align-items: center
