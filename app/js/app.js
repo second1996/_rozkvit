@@ -197,6 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Show the tooltip
 		if (e.target.getAttribute('data-region') != null) {
+
+			if (map.querySelector('[data-show-mobile]')) {
+				map.querySelector('[data-show-mobile]').removeAttribute('data-show-mobile')
+			}
+
 			tooltip.setAttribute('data-show', '')
 			ttTitle.textContent = e.target.getAttribute('data-region')
 			ttFarmers.textContent = e.target.getAttribute('data-farmers')
@@ -206,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			tooltip.removeAttribute('data-show')
 		}
 
-		// Update position
+		// Update tooltip position
 		popperInstance.update()
 	})
 

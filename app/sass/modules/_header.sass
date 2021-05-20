@@ -5,7 +5,7 @@
 	right: 0
 	z-index: 19
 	transition: background-color .3s ease
-	+media-breakpoint-down(xl)
+	+media-breakpoint-down(lg)
 		position: fixed
 		background-color: $white
 		.header-logo svg path[fill="#fff"]
@@ -38,7 +38,8 @@
 		justify-content: space-between
 		padding-top: 40px
 		padding-bottom: 40px
-		+media-breakpoint-down(xl)
+		+media-breakpoint-down(lg)
+			justify-content: flex-start
 			height: 80px
 			padding-top: 0
 			padding-bottom: 0
@@ -49,6 +50,7 @@
 			max-width: 170px
 			max-height: 50px
 	&-nav
+		margin-left: 32px
 		nav
 			display: flex
 			align-items: center
@@ -58,6 +60,9 @@
 				margin-right: 20px
 				color: $white
 				font-weight: $w-medium
+				+media-breakpoint-down(xl)
+					margin-left: 10px
+					margin-right: 10px
 				&:hover
 					color: $aqua-200
 					&::after
@@ -86,7 +91,6 @@
 					height: 36px
 					fill: $aqua-200
 				span
-					max-width: 140px
 					margin-left: 12px
 					color: $white
 					font-size: 15px
@@ -96,7 +100,16 @@
 				&:hover
 					span
 						color: $aqua-200
+		.button .btn
+			+media-breakpoint-down(xl)
+				min-width: auto
+				width: 160px
+				padding: 16px
+				white-space: normal
 	&-burger
+		margin-left: 32px
+		+media-breakpoint-down(lg)
+			margin-left: auto
 		.burger-btn
 			display: flex
 			flex-direction: column
