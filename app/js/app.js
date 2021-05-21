@@ -4,8 +4,9 @@ window.jQuery = $
 window.$ = $
 
 // Import vendor jQuery plugin example (not module)
-require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') // Popper lib
+require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') // Bootstrap bundle
 require('../../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js') // jQuery Mask input
+require('../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js') // Fancybox gallery
 
 // Import Swiper slider bundle
 import SwiperCore, { Navigation, Pagination, EffectFade, Autoplay, Swiper } from 'swiper/core'
@@ -71,7 +72,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	/**
 	 * jQuery input mask
 	 */
-	$('input[type="tel"]').mask('+38 099 999 99 99').attr('autocomplete', 'off')
+	$('input[type="tel"]').mask('+38 (099) 999-99-99').attr('autocomplete', 'off')
+	$('input[type="tel"]').on('change', function() {
+		const maxLength = $(this).attr('maxlength'),
+					submitBtn = $(this).parent('form').find('button[type="submit"]');
+
+		if ($(this).val().length != maxLength) {
+			submitBtn.attr('disabled', true)
+			$(this).addClass('form-error')
+			$(this).parent('form').find('.form-error-notice').addClass('_is-shown')
+		} else {
+			submitBtn.removeAttr('disabled')
+			$(this).removeClass('form-error')
+			$(this).parent('form').find('.form-error-notice').removeClass('_is-shown')
+		}
+	})
+
+
+	/**
+	 * Fancybox config
+	 */
+	$.fancybox.defaults.buttons = ['zoom', 'thumbs', 'close'];
 
 
 	/**

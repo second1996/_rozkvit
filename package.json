@@ -35,6 +35,7 @@
 		"webpack-stream": "^6.1.2"
 	},
 	"dependencies": {
+		"@fancyapps/fancybox": "^3.5.7",
 		"@popperjs/core": "^2.9.2",
 		"aos": "^3.0.0-beta.6",
 		"jquery": "^3.6.0",

@@ -12,6 +12,7 @@ input, textarea
 
 button:disabled
 	pointer-events: none
+	opacity: 0.5
 
 .form
 	position: relative
@@ -123,7 +124,24 @@ button:disabled
 		input:checked + span::after
 			opacity: 1
 
+	// Policy checkbox
 	&-policy
 		.form-checkbox > span
 			+media-breakpoint-down(xs)
 				font-size: 13px
+
+	// Form errors
+	&-error
+		border-color: red
+		&:focus
+			border-color: red
+			box-shadow: 0 0 0 1px red
+		&-notice
+			display: none
+			position: relative
+			top: -18px
+			color: red
+			font-size: 12px
+			&._is-shown
+				display: block
+

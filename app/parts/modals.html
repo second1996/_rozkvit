@@ -4,7 +4,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="callbackModalLabel">Зворотній зв’язок</h5>
-				<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="modal-close btn" data-dismiss="modal" aria-label="Close">
 					<svg class="icon icon-close"><use xlink:href="images/symbol-defs.svg#close"></use></svg>
 				</button>
 			</div>
@@ -12,6 +12,7 @@
 				<form class="form">
 					<input type="text" class="form-control" placeholder="Ваше ім'я" required>
 					<input type="tel" class="form-control" placeholder="Номер телефону" required>
+					<div class="form-error-notice">Недопустимий номер телефону. Перевірте номер і спробуйте ще раз.</div>
 					<button type="submit" class="form-submit btn btn-aqua">Надіслати заявку</button>
 					<div class="form-policy text-center">
 						<label class="form-checkbox">
