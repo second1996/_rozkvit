@@ -22,38 +22,40 @@ document.addEventListener('DOMContentLoaded', () => {
 	/**
 	 * Preloader
 	 */
-	function loadbar() {
-		let overlay  = document.querySelector('#preloader'),
-				status   = document.querySelector('#preloader-status'),
-				img      = document.images,
-				counter  = 0,
-				total    = img.length;
+	if( document.querySelector('#preloader') ) {
+		function loadbar() {
+			let overlay  = document.querySelector('#preloader'),
+					status   = document.querySelector('#preloader-status'),
+					img      = document.images,
+					counter  = 0,
+					total    = img.length;
 
-		function imgLoaded() {
-			counter += 1
-			const percent = ((100/total*counter) << 0) + '%'
+			function imgLoaded() {
+				counter += 1
+				const percent = ((100/total*counter) << 0) + '%'
 
-			status.innerHTML = percent
+				status.innerHTML = percent
 
-			if (counter === total) return doneLoading()
+				if (counter === total) return doneLoading()
+			}
+			function doneLoading() {
+				setTimeout(() => {
+					overlay.setAttribute('data-aos', 'zoom-out')
+				}, 600)
+				setTimeout(() => {
+					overlay.remove()
+				}, 2000)
+			}
+			for(let i = 0; i < total; i++) {
+				let tImg = new Image()
+
+				tImg.onload  = imgLoaded
+				tImg.onerror = imgLoaded
+				tImg.src     = img[i].src
+			}
 		}
-		function doneLoading() {
-			setTimeout(() => {
-				overlay.setAttribute('data-aos', 'zoom-out')
-			}, 600)
-			setTimeout(() => {
-				overlay.remove()
-			}, 2000)
-		}
-		for(let i = 0; i < total; i++) {
-			let tImg = new Image()
-
-			tImg.onload  = imgLoaded
-			tImg.onerror = imgLoaded
-			tImg.src     = img[i].src
-		}
+		loadbar()
 	}
-	loadbar()
 
 
 	/**
@@ -176,74 +178,76 @@ document.addEventListener('DOMContentLoaded', () => {
 	/**
 	 * Genplan Tooltip
 	 */
-	const map = document.querySelector('#ukraine-map .regions')
-	const tooltip = document.querySelector('#tooltip')
+	if( document.querySelector('#h-map') ) {
+		const map = document.querySelector('#ukraine-map .regions')
+		const tooltip = document.querySelector('#tooltip')
 
-	function generateGetBoundingClientRect(x = 0, y = 0) {
-		return () => ({
-			width: 0,
-			height: 0,
-			top: y,
-			right: x,
-			bottom: y,
-			left: x,
-		})
-	}
-
-	const virtualElement = {
-		getBoundingClientRect: generateGetBoundingClientRect(),
-	}
-
-	const popperInstance = createPopper(virtualElement, tooltip, {
-		placement: 'right',
-	})
-
-	if (window.matchMedia('(max-width: 767.98px)').matches) {
-		popperInstance.setOptions({
-			placement: 'bottom',
-			modifiers: [{ name: 'eventListeners', enabled: false }],
-		})
-	}
-
-	map.addEventListener('mousemove', (e) => {
-		const mouseX = e.clientX
-		const mouseY = e.clientY
-
-		const ttTitle = tooltip.querySelector('.tooltip-title')
-		const ttFarmers = tooltip.querySelector('.tooltip-info .farmers-count')
-		const ttFarmersArea = tooltip.querySelector('.tooltip-info .farmers-area > em')
-		const ttProcurers = tooltip.querySelector('.tooltip-info .procurers-count')
-
-		virtualElement.getBoundingClientRect = generateGetBoundingClientRect(mouseX, mouseY)
-
-		// Show the tooltip
-		if (e.target.getAttribute('data-region') != null) {
-
-			if (map.querySelector('[data-show-mobile]')) {
-				map.querySelector('[data-show-mobile]').removeAttribute('data-show-mobile')
-			}
-
-			tooltip.setAttribute('data-show', '')
-			ttTitle.textContent = e.target.getAttribute('data-region')
-			ttFarmers.textContent = e.target.getAttribute('data-farmers')
-			ttFarmersArea.textContent = e.target.getAttribute('data-farmers-area')
-			ttProcurers.textContent = e.target.getAttribute('data-procurers')
-		} else {
-			tooltip.removeAttribute('data-show')
+		function generateGetBoundingClientRect(x = 0, y = 0) {
+			return () => ({
+				width: 0,
+				height: 0,
+				top: y,
+				right: x,
+				bottom: y,
+				left: x,
+			})
 		}
 
-		// Update tooltip position
-		popperInstance.update()
-	})
+		const virtualElement = {
+			getBoundingClientRect: generateGetBoundingClientRect(),
+		}
 
-	map.addEventListener('mouseleave', () => {
-		// Hide the tooltip
-		tooltip.removeAttribute('data-show')
-
-		// Disable the event listeners
-		popperInstance.setOptions({
-			modifiers: [{ name: 'eventListeners', enabled: false }],
+		const popperInstance = createPopper(virtualElement, tooltip, {
+			placement: 'right',
 		})
-	})
+
+		if (window.matchMedia('(max-width: 767.98px)').matches) {
+			popperInstance.setOptions({
+				placement: 'bottom',
+				modifiers: [{ name: 'eventListeners', enabled: false }],
+			})
+		}
+
+		map.addEventListener('mousemove', (e) => {
+			const mouseX = e.clientX
+			const mouseY = e.clientY
+
+			const ttTitle = tooltip.querySelector('.tooltip-title')
+			const ttFarmers = tooltip.querySelector('.tooltip-info .farmers-count')
+			const ttFarmersArea = tooltip.querySelector('.tooltip-info .farmers-area > em')
+			const ttProcurers = tooltip.querySelector('.tooltip-info .procurers-count')
+
+			virtualElement.getBoundingClientRect = generateGetBoundingClientRect(mouseX, mouseY)
+
+			// Show the tooltip
+			if (e.target.getAttribute('data-region') != null) {
+
+				if (map.querySelector('[data-show-mobile]')) {
+					map.querySelector('[data-show-mobile]').removeAttribute('data-show-mobile')
+				}
+
+				tooltip.setAttribute('data-show', '')
+				ttTitle.textContent = e.target.getAttribute('data-region')
+				ttFarmers.textContent = e.target.getAttribute('data-farmers')
+				ttFarmersArea.textContent = e.target.getAttribute('data-farmers-area')
+				ttProcurers.textContent = e.target.getAttribute('data-procurers')
+			} else {
+				tooltip.removeAttribute('data-show')
+			}
+
+			// Update tooltip position
+			popperInstance.update()
+		})
+
+		map.addEventListener('mouseleave', () => {
+			// Hide the tooltip
+			tooltip.removeAttribute('data-show')
+
+			// Disable the event listeners
+			popperInstance.setOptions({
+				modifiers: [{ name: 'eventListeners', enabled: false }],
+			})
+		})
+	}
 
 })

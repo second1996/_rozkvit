@@ -1,0 +1,32 @@
+.thanks-page
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 100vh
+	min-height: 600px
+	padding-top: 64px
+	padding-bottom: 64px
+	background-color: $blue
+	&-wrapper
+		text-align: center
+		.title
+			margin-bottom: 16px
+		.descr
+			margin-bottom: 32px
+	
+.text-page
+	padding-top: 64px
+	padding-bottom: 64px
+	&-wrapper
+		max-width: 960px
+		margin-left: auto
+		margin-right: auto
+		article
+			max-width: 680px
+			margin-left: auto
+			margin-right: auto
+			font-size: 18px
+			+media-breakpoint-down(lg)
+				font-size: 17px
+			+media-breakpoint-down(sm)
+				font-size: 16px
