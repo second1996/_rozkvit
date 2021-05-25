@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('.header-burger .burger-btn').on('click', function() {
 		$(this).toggleClass('_is-toggled')
 		$('.m-menu').toggleClass('_is-shown')
-		$('.m-menu-navigation nav a').on('click', function() {
+		$('.m-menu-navigation nav a, .m-menu-links a').on('click', function() {
 			$('.header-burger .burger-btn').removeClass('_is-toggled')
 			$('.m-menu').removeClass('_is-shown')
 		})
