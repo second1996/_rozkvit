@@ -7,6 +7,7 @@ window.$ = $
 require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') // Bootstrap bundle
 require('../../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js') // jQuery Mask input
 require('../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js') // Fancybox gallery
+require('../../node_modules/readmore-js/readmore.min.js') // Readmore.js
 
 // Import Swiper slider bundle
 import SwiperCore, { Navigation, Pagination, EffectFade, Autoplay, Swiper } from 'swiper/core'
@@ -110,6 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		return false
 	})
 
+
+	/**
+	 * Read More for About section
+	 */
+	if( $(window).width() < 992 ) {
+		$('.h-about-content .descr').readmore({
+			moreLink: $('#h-about-more'),
+			lessLink: false,
+			embedCSS: false
+		})
+	}
 
 	/**
 	 * Sticky header

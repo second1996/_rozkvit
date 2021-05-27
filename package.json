@@ -41,6 +41,7 @@
 		"jquery": "^3.6.0",
 		"jquery-mask-plugin": "^1.14.16",
 		"popper.js": "^1.16.1",
+		"readmore-js": "^2.2.1",
 		"swiper": "^6.5.8"
 	}
 }
