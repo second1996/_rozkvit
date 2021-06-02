@@ -6,20 +6,9 @@
 	&.fade
 		.modal-dialog
 			transform: scale(0.95)
-		.modal-content::before
-			top: -60px
-			left: -60px
-			opacity: 0
 	&.show
 		.modal-dialog
 			transform: none
-		.modal-content::before
-			top: -85px
-			left: -85px
-			opacity: 1
-			+media-breakpoint-down(sm)
-				top: -64px
-				left: -64px
 
 	&-dialog
 		padding-left: 30px
@@ -35,17 +24,6 @@
 		border: 0
 		+media-breakpoint-down(sm)
 			border-radius: 32px 0 32px 0
-		&::before
-			content: ''
-			position: absolute
-			z-index: -1
-			width: 168px
-			height: 171px
-			background: url('../images/dist/mint-leaves.png') no-repeat center/cover
-			transition: .3s ease
-			+media-breakpoint-down(sm)
-				width: 130px
-				height: 132px
 
 	&-header
 		align-items: center
